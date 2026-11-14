@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_tienda_unicah" model="ir.ui.view">
+        <field name="name">sale.order.form.tienda.unicah</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="convenio_unicah_id"/>
+                <field name="descuento_convenio"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

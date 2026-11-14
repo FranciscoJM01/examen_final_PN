@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="convenio_estudiante" model="tienda.convenio">
+            <field name="name">Estudiante Regular UNICAH</field>
+            <field name="codigo">EST-UNICAH</field>
+            <field name="porcentaje_descuento">10.0</field>
+            <field name="activo">True</field>
+            <field name="descripcion">Descuento del 10% aplicable a estudiantes activos con carné vigente.</field>
+        </record>
+        <record id="convenio_docente" model="tienda.convenio">
+            <field name="name">Docente y Personal Administrativo</field>
+            <field name="codigo">DOC-UNICAH</field>
+            <field name="porcentaje_descuento">15.0</field>
+            <field name="activo">True</field>
+            <field name="descripcion">Descuento del 15% para catedráticos y colaboradores administrativos.</field>
+        </record>
+        <record id="convenio_becado" model="tienda.convenio">
+            <field name="name">Estudiante Becado Excelencia</field>
+            <field name="codigo">BEC-UNICAH</field>
+            <field name="porcentaje_descuento">20.0</field>
+            <field name="activo">True</field>
+            <field name="descripcion">Descuento especial del 20% para estudiantes con beca académica o deportiva.</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tienda_convenio_list" model="ir.ui.view">
+        <field name="name">tienda.convenio.list</field>
+        <field name="model">tienda.convenio</field>
+        <field name="arch" type="xml">
+            <list string="Convenios UNICAH">
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="porcentaje_descuento"/>
+                <field name="activo"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_tienda_convenio_form" model="ir.ui.view">
+        <field name="name">tienda.convenio.form</field>
+        <field name="model">tienda.convenio</field>
+        <field name="arch" type="xml">
+            <form string="Convenio UNICAH">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="codigo"/>
+                        </group>
+                        <group>
+                            <field name="porcentaje_descuento"/>
+                            <field name="activo"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="descripcion"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_tienda_convenio" model="ir.actions.act_window">
+        <field name="name">Convenios UNICAH</field>
+        <field name="res_model">tienda.convenio</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_tienda_convenio_config"
+              name="Convenios UNICAH"
+              parent="sale.menu_sale_config"
+              action="action_tienda_convenio"
+              sequence="50"/>
+</odoo>
