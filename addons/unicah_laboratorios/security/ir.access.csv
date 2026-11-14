@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,operation
+access_unicah_reserva_user,unicah.reserva.user,model_unicah_reserva,base.group_user,crud
