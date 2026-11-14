@@ -5,9 +5,44 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button name="action_aplicar_convenio"
+                        string="Aplicar convenio"
+                        type="object"
+                        class="btn-secondary"
+                        invisible="not convenio_unicah_id"/>
+            </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
                 <field name="convenio_unicah_id"/>
                 <field name="descuento_convenio"/>
+                <field name="ahorro_convenio" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_quotation_tree_tienda_unicah" model="ir.ui.view">
+        <field name="name">sale.order.list.tienda.unicah</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='amount_total']" position="before">
+                <field name="convenio_unicah_id" optional="show"/>
+                <field name="ahorro_convenio" sum="Total Ahorro" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sales_order_filter_tienda_unicah" model="ir.ui.view">
+        <field name="name">sale.order.search.tienda.unicah</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+                <separator/>
+                <filter string="Con convenio" name="con_convenio" domain="[('convenio_unicah_id', '!=', False)]"/>
+            </xpath>
+            <xpath expr="//group" position="inside">
+                <filter string="Convenio" name="group_by_convenio" context="{'group_by': 'convenio_unicah_id'}"/>
             </xpath>
         </field>
     </record>

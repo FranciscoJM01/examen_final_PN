@@ -5,9 +5,19 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='vat']" position="after">
-                <field name="numero_cuenta_unicah"/>
-                <field name="convenio_unicah_id"/>
+            <xpath expr="//notebook" position="inside">
+                <page string="UNICAH" name="unicah_tab">
+                    <group>
+                        <group string="Datos Institucionales">
+                            <field name="tipo_unicah"/>
+                            <field name="numero_cuenta_unicah" invisible="tipo_unicah != 'estudiante'"/>
+                            <field name="carrera_unicah" invisible="tipo_unicah != 'estudiante'"/>
+                        </group>
+                        <group string="Beneficios Tienda">
+                            <field name="convenio_unicah_id"/>
+                        </group>
+                    </group>
+                </page>
             </xpath>
         </field>
     </record>

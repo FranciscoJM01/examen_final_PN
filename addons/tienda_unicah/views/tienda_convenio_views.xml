@@ -8,6 +8,8 @@
                 <field name="codigo"/>
                 <field name="name"/>
                 <field name="porcentaje_descuento"/>
+                <field name="fecha_inicio"/>
+                <field name="fecha_fin"/>
                 <field name="activo"/>
             </list>
         </field>
@@ -23,9 +25,11 @@
                         <group>
                             <field name="name"/>
                             <field name="codigo"/>
+                            <field name="porcentaje_descuento"/>
                         </group>
                         <group>
-                            <field name="porcentaje_descuento"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_fin"/>
                             <field name="activo"/>
                         </group>
                     </group>
